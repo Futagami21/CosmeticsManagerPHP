@@ -25,12 +25,8 @@ class CosmeticsController extends Controller
                 return view('/home')->with([
                     'alert' => $alert,
                 ]);
-            }
-
-            
+            }            
         }
-        
-
         return view('home');
     }
 
@@ -40,11 +36,11 @@ class CosmeticsController extends Controller
     }
     //化粧品登録
     public function cosmetics_register(Request $request){
+
         $request->validate([
             'name' => 'required',
             'memo' => 'max:200',
             'comment' => 'max:200',
-            
         ],
         [
             'name.required' => '商品名は必須入力です。',
@@ -262,7 +258,6 @@ class CosmeticsController extends Controller
     //お気に入り
     public function favorite($id){
 
-
         $cosmetic = Cosmetic::find($id);
         $f_check = $cosmetic->favorite;
         if($f_check == 0){
@@ -274,10 +269,6 @@ class CosmeticsController extends Controller
             $cosmetic->save();
             return redirect()->route('show_cosmetics_list');
         }
-
-           
-        // $cosmetic->save();
-        // return redirect()->route('show_cosmetics_list');
 
     }
 
