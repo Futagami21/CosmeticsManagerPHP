@@ -63,7 +63,7 @@ class AdminController extends Controller
         $user_id = $id;
         Cosmetic::where('user_id','=',$user_id);
         User::destroy($id);
-        // return view('admin.users_list');
+
         return redirect()->route('users_list')->with('delete_success','削除しました。');
     }
 
@@ -87,7 +87,7 @@ class AdminController extends Controller
     public function contact_delete($id){
 
         Contact::destroy($id);
-        // return view('admin.users_list');
+
         return redirect()->route('contact_list')->with('delete_success','削除しました。');
     }
 }

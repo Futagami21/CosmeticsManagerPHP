@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>cosmetics_manager</title>
@@ -15,10 +15,8 @@
     <script src="{{ asset('/js/like.js') }}"></script>
 </head>
     <body>
-
-    @include('header2')
+        @include('header2')
         <h1 class="title">みんなのおすすめ一覧</h1>
-
 
         <div class="serch-sort-area">
             <div class="search-area">
@@ -68,43 +66,9 @@
             @endforeach
         </div>
 
-
-
-        <!-- <div class="contents-area flex list-justify">
-            @foreach($cosmetics as $cosmetic)
-                    <div class="r-card flex" style="width: 14rem;">
-                        <button class="btn flex" onclick="location.href='/recomend_detail{{$cosmetic->id}}'">
-                            <img src="{{ Storage::url($cosmetic->image) }}" class="card-img-top list-img" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title h-3rem">{{ $cosmetic->name }}</h5>
-                                <p class="card-text h-3rem"><p>種類:{{ $cosmetic->type }}</p></p>
-                                <p class="card-text h-3rem"><p>ブランド名:{{ $cosmetic->company }}</p></p>
-                            </div>
-                        </button>
-                        <div class="like-area">
-                            @if (!$cosmetic->isLikedBy(Auth::user()))
-                                <span class="likes flex flex-end">
-                                    <i class="fas fa-heart like-toggle like-btn" data-cosmetic-id="{{ $cosmetic->id }}"></i>
-                                    <span class="like-counter"><p>{{$cosmetic->likes_count}}</p></span>
-                                </span>
-                            @else
-                                <span class="likes flex">
-                                    <i class="fas fa-heart heart like-toggle liked like-btn" data-cosmetic-id="{{ $cosmetic->id }}"></i>
-                                    <span class="like-counter"><p>{{$cosmetic->likes_count}}</p></span>
-                                </span>
-                            @endif
-                        </div>
-                        
-                    </div>
-            @endforeach
-        </div> -->
-
-
-        <br>
         <div class="btn-area">
             <button class="btn submit-btn" type="button" onclick="location.href='/home'">ホームに戻る</button>
         </div>
         
-
     </body>
 </html>

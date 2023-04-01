@@ -34,17 +34,13 @@ body {
 	box-sizing: border-box;
 }
 
-/**/
-
 /*colorここから*/
 .red{
 	color: red;
 }
-
 .blue{
 	color: #5876a3;
 }
-
 .white{
 	color: #fff;
 }
@@ -54,7 +50,6 @@ body {
 .gray{
 	color: #d0ccd0;
 }
-
 .blue-border{
 	border: 1px solid #5876a3;
 }
@@ -64,42 +59,30 @@ body {
 	border-color: #5876a3;
 	background-color: #5876a3;
 }
-
 .page-link{
 	color: #5876a3;
 }
-
 
 /* headerここから */
 .header{
 	background-color: #08bdbd;
 	color: #fff;
-	/* position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 999; */
 }
-
 .header-width{
 	width: 85%;
 }
-
- .btn{
+.btn{
 	border: 1px solid transparent;
- }
+}
 /* headerここまで */
-
 
 body{
 	width: 100%;
 	overflow-x: hidden;
-	/* background-color: #b6e5e5; */
 }
 .contents-area{
 	width: 85%;
 	margin: auto;
-	/* margin-bottom: 100px; */
 	text-align: center;
 	border: 1px solid #5876a3;
 	border-radius: 10px;
@@ -140,7 +123,6 @@ h1{
 .error{
 	font-size: 10px;
 }
-
 
 .submit-btn{
     color: #fff;
@@ -188,13 +170,9 @@ h1{
 	padding: 15px;
 }
 
-
 .link-btn{
     color: #5876a3;
     background: #fff;
-    /* color: #fff;
-    background: #5876a3; */
-    /* padding: 10px 30px; */
     display: inline-block;
     border-radius: 5px;
     border: none;
@@ -219,7 +197,6 @@ h1{
 .home-list,
 .mypage-list{
     margin: auto;
-    /* text-align: center; */
     width: 85%;
 	display: flex;
 	flex-wrap: wrap;
@@ -314,14 +291,12 @@ h1{
 	z-index: 9999;
 }
 .popup-window{
-	/* max-width: 380px; */
     width: 400px;
 	background-color: #ffffff;
 	border-radius: 6px;
 	position: fixed;
 	top: 50%;
 	left: 35%;
-	/* transition: 500ms; */
 	z-index: 10000;
 	opacity: 0;
 	margin: 0 auto;
@@ -385,16 +360,10 @@ h1{
 .size{
 	font-size: 20px;
 }
-/* 
-button img{
-	width: 25px;
-	margin: auto;
-} */
 
 .under{
     border-bottom: 1px solid #ccc;
 }
-
 
 .pop-contents{
 	padding: 15px 15px;
@@ -411,7 +380,6 @@ table{
 }
 .table-body {
     width: 80%;
-    /* max-width: 1200px; */
     padding: 2%;
 }
 table tr {
@@ -517,7 +485,6 @@ table td{
 .wrap-sort{
 	word-break: break-all;
 }
-/* ここから化粧品リスト改定版 */
 
 #cardlayout-wrap {
     position: relative;

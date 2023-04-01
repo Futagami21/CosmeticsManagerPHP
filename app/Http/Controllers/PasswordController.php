@@ -58,7 +58,6 @@ class PasswordController extends Controller
     //送信完了
     public function send_complete()
     {
-       // メール送信処理で保存したセッションキーに値がなければアクセスできないようにすることで不正アクセスを防ぐ
         if (session()->pull(self::MAIL_SENDED_SESSION_KEY) !== 'user_reset_password_send_email') {
             return redirect()->route('show_reset')
                 ->with('flash_message', '不正なリクエストです。');
@@ -107,7 +106,6 @@ class PasswordController extends Controller
     //更新完了画面
     public function reset_complete()
     {
-        // パスワード更新処理で保存したセッションキーに値がなければアクセスできないようにすることで不正アクセスを防ぐ
         if (session()->pull(self::UPDATE_PASSWORD_SESSION_KEY) !== 'user_update_password') {
             return redirect()->route('show_reset')
                 ->with('flash_message', '不正なリクエストです。');

@@ -54,8 +54,6 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
 
-            //ここでログイン
-
             return view('user.signup_complete',['inputs' => $inputs]);
             
         }
@@ -66,7 +64,6 @@ class UserController extends Controller
         return view('user.mypage');
     }
 
-    
     //ユーザ編集画面表示
     public function show_user_edit(){
         return view('user.user_edit');
@@ -95,8 +92,6 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->save();
 
-        // return redirect()->route('show_user_edit')->with('login_success','編集完了しました。');
-        // return view('user.user_edit');
         return redirect()->route('show_user_edit',$user->id)->with('edit_success','編集完了しました。');
     }
 
@@ -107,12 +102,8 @@ class UserController extends Controller
 
     public function user_delete_complete(Request $request){
 
-
         $userId = Auth::id();
         User::destroy($userId);
-        // Auth::logout();//ログアウト
-        // $request->session()->invalidate();//セッション削除
-        // $request->session()->regenerateToken();//セッション再構成
 
         return view('user.user_delete_complete');
     }

@@ -12,17 +12,11 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('/js/click.js') }}"></script>
-
 </head>
     <body>
 
-
-
-    @include('header2')
+        @include('header2')
         <h1 class="title">化粧品一覧</h1>
-        @if(isset($alert))
-        {{ $alert }}
-        @endif
 
         <div class="serch-sort-area">
             <div class="search-area">
@@ -48,15 +42,11 @@
             </div>
         </div>
         
-
-        
-        
         @if(session('unregist_success'))
             <div class="alert alert-success">
                 {{ session('unregist_success') }}
             </div>
         @endif
-
 
         <div class="" id="cardlayout-wrap">
             @foreach($cosmetics as $cosmetic)  
@@ -98,8 +88,5 @@
             <button class="btn btn-secondary submit-btn" type="button" onclick="location.href='/recomend_list'">みんなのおすすめを見る</button>
             <button class="btn btn-secondary submit-btn" type="button" onclick="location.href='/home'">ホームに戻る</button>
         </div>
-
-        
-
     </body>
 </html>

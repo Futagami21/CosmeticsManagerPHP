@@ -276,7 +276,6 @@ class CosmeticsController extends Controller
     public function show_cosmetics_list(Request $request){
 
         //ログイン中のユーザのもののみ表示
-        // $cosmetics = Cosmetic::where('user_id',\Auth::user()->id)->paginate(18);
         if($request->sort == 1){
             $cosmetics = Cosmetic::where('user_id',\Auth::user()->id)->orderby('created_at','desc')->paginate(18);
             $sort = "作成日順";
@@ -304,26 +303,15 @@ class CosmeticsController extends Controller
         }
 
         $search = $request->input('search');
-        // $query = Cosmetic::where('user_id',\Auth::user()->id);
         $query = Cosmetic::where('user_id',\Auth::user()->id);
-        // もし検索フォームにキーワードが入力されたら
         if ($search) {
-            // 全角スペースを半角に変換
             $spaceConversion = mb_convert_kana($search, 's');
-            // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"]）
             $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
-            // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
             foreach($wordArraySearched as $value) {
                 $query->where('name', 'like', '%'.$value.'%');
-                // ->where('type', 'like', '%'.$value.'%');
-                // ->orWhere('company', 'like', '%'.$value.'%');
-                //繋ぎたいテーブルorwhereで繋ぐ
             }
             $cosmetics = $query->paginate(18);
         }
-
-
-        
 
         return view('cosmetics.cosmetics_list')->with([
             'cosmetics' => $cosmetics,
@@ -349,7 +337,6 @@ class CosmeticsController extends Controller
 
         return view('cosmetics.cosmetics_edit',['cosmetic' => $cosmetic]);
     }
-
 
     //化粧品編集
     public function cosmetics_edit(Request $request,$id){
@@ -381,7 +368,6 @@ class CosmeticsController extends Controller
 
         //開封日、入手日両方入力　もしくは　開封日のみ入力
         if(isset($open) && !isset($get) || isset($open) && isset($get)){
-            //inputで送られた開封日をタイムスタンプに
             $date = $request->input("open_date");
 
             //expiryから日付計算
@@ -459,87 +445,10 @@ class CosmeticsController extends Controller
                 $expiry_date = date('y-m-d',strtotime($date." +3 year"));
             }
         }
-        //開封日も入手日も入っていた場合
-        // if(!isset($open) && isset($get)){
+        //入手日のみ入っていた場合
+        if(!isset($open) && isset($get)){
 
-        //     $date = $request->input("get_date");
-
-        //     if($request->expiry == "1ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +1 month"));
-        //     }elseif($request->expiry == "2ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +2 month"));
-        //     }elseif($request->expiry == "3ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +3 month"));
-        //     }elseif($request->expiry == "4ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +4 month"));
-        //     }elseif($request->expiry == "5ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +5 month"));
-        //     }elseif($request->expiry == "6ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +6 month"));
-        //     }elseif($request->expiry == "7ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +7 month"));
-        //     }elseif($request->expiry == "8ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +8 month"));
-        //     }elseif($request->expiry == "9ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +9 month"));
-        //     }elseif($request->expiry == "10ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +10 month"));
-        //     }elseif($request->expiry == "11ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +11 month"));
-        //     }elseif($request->expiry == "1年"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +1 year"));
-        //     }elseif($request->expiry == "1年1ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +1 month +1 year"));
-        //     }elseif($request->expiry == "1年2ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +2 month +1 year"));
-        //     }elseif($request->expiry == "1年3ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +3 month +1 year"));
-        //     }elseif($request->expiry == "1年4ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +4 month +1 year"));
-        //     }elseif($request->expiry == "1年5ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +5 month +1 year"));
-        //     }elseif($request->expiry == "1年6ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +6 month +1 year"));
-        //     }elseif($request->expiry == "1年7ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +7 month +1 year"));
-        //     }elseif($request->expiry == "1年8ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +8 month +1 year"));
-        //     }elseif($request->expiry == "1年9ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +9 month +1 year"));
-        //     }elseif($request->expiry == "1年10ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +10 month +1 year"));
-        //     }elseif($request->expiry == "1年11ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +11 month +1 year"));
-        //     }elseif($request->expiry == "2年"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +2 year"));
-        //     }elseif($request->expiry == "2年1ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +1 month +1 year"));
-        //     }elseif($request->expiry == "2年2ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +2 month +2 year"));
-        //     }elseif($request->expiry == "2年3ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +3 month +2 year"));
-        //     }elseif($request->expiry == "2年4ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +4 month +2 year"));
-        //     }elseif($request->expiry == "2年5ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +5 month +2 year"));
-        //     }elseif($request->expiry == "2年6ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +6 month +2 year"));
-        //     }elseif($request->expiry == "2年7ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +7 month +2 year"));
-        //     }elseif($request->expiry == "2年8ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +8 month +2 year"));
-        //     }elseif($request->expiry == "2年9ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +9 month +2 year"));
-        //     }elseif($request->expiry == "2年10ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +10 month +2 year"));
-        //     }elseif($request->expiry == "2年11ヶ月"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +11 month +2 year"));
-        //     }elseif($request->expiry == "3年"){
-        //         $expiry_date = date('y-m-d',strtotime($date." +3 year"));
-        //     }
-        // }
-        // if
-        
+        }
         
         $cosmetic = Cosmetic::find($id);
         $cosmetic->user_id = $userId;
@@ -582,8 +491,6 @@ class CosmeticsController extends Controller
         return view('cosmetics.cosmetics_delete_complete');
     }
 
-
-
     //おすすめ一覧
     public function recomend_list(Request $request){
 
@@ -607,18 +514,13 @@ class CosmeticsController extends Controller
 
         $search = $request->input('search');
         $query = Cosmetic::withCount('likes')->whereRole(1);
-        // もし検索フォームにキーワードが入力されたら
         if ($search) {
             // 全角スペースを半角に変換
             $spaceConversion = mb_convert_kana($search, 's');
-            // 単語を半角スペースで区切り、配列にする
+            // 単語を半角スペースで区切り、配列に
             $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
-            // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
             foreach($wordArraySearched as $value) {
-                $query->where('name', 'like', '%'.$value.'%')
-                ->orWhere('type', 'like', '%'.$value.'%')
-                ->orWhere('company', 'like', '%'.$value.'%');
-                //繋ぎたいテーブルorwhereで繋ぐ
+                $query->where('name', 'like', '%'.$value.'%');
             }
             $cosmetics = $query->paginate(18);
         }
@@ -632,8 +534,6 @@ class CosmeticsController extends Controller
     //おすすめ詳細ページ表示
     public function recomend_detail($id){
 
-        // $cosmetic = Cosmetic::find($id);
-        // $cosmetic = Cosmetic::find($id);
         $cosmetic = Cosmetic::find($id)->whererole(1)->withCount('likes')->first();
 
         return view('cosmetics.recomend_detail')->with([
@@ -646,7 +546,6 @@ class CosmeticsController extends Controller
 
         $cosmetic = Cosmetic::find($id);
 
-
         return view('cosmetics.recomend_confirm',['cosmetic' => $cosmetic]);
     }
 
@@ -658,7 +557,6 @@ class CosmeticsController extends Controller
         $cosmetic->comment = $request->comment;
 
         $cosmetic->save();
-
 
         return view('cosmetics.recomend_complete',['cosmetic' => $cosmetic]);
     }
@@ -685,24 +583,23 @@ class CosmeticsController extends Controller
 
     //いいね機能
     public function like(Request $request){
-        $user_id = Auth::user()->id; //1.ログインユーザーのid取得
-        $cosmetic_id = $request->cosmetic_id; //2.投稿idの取得
+        $user_id = Auth::user()->id; 
+        $cosmetic_id = $request->cosmetic_id; 
         $already_liked = Like::where('user_id', $user_id)->where('cosmetic_id', $cosmetic_id)->first(); //3.
 
-        if (!$already_liked) { //もしこのユーザーがこの投稿にまだいいねしてなかったら
-            $like = new Like; //4.Likeクラスのインスタンスを作成
-            $like->cosmetic_id = $cosmetic_id; //Likeインスタンスにcosmetic_id,user_idをセット
+        if (!$already_liked) { 
+            $like = new Like; 
+            $like->cosmetic_id = $cosmetic_id; 
             $like->user_id = $user_id;
             $like->save();
-        } else { //もしこのユーザーがこの投稿に既にいいねしてたらdelete
+        } else { 
             Like::where('cosmetic_id', $cosmetic_id)->where('user_id', $user_id)->delete();
         }
-        //5.この投稿の最新の総いいね数を取得
         $cosmetic_likes_count = Cosmetic::withCount('likes')->findOrFail($cosmetic_id)->likes_count;
         $param = [
             'cosmetic_likes_count' => $cosmetic_likes_count,
         ];
-        return response()->json($param); //6.JSONデータをjQueryに返す
+        return response()->json($param); 
     }
 
 }

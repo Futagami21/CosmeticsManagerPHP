@@ -27,12 +27,6 @@ class LoginFormRequest extends FormRequest
             'mail' => 'required|email|max:255',
             'password' => 'required',
         ];
-    //     ],
-    //     [
-    //         'mail.required' => 'メールアドレスを入力してください。',
-    //         'mail.email' => 'メールアドレスは正しくご入力ください。',
-    //         'mail.max' => 'メールアドレスは正しくご入力ください。',
-    //         'password.required' => 'パスワードを入力してください',
-    //     ];
+
     }
 }

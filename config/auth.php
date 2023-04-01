@@ -40,16 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        // 追加ここから
         'admins' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-        // 'members' => [
-        //     'driver' => 'session',
-        //     'provider' => 'members',
-        // ],
-	// 追加ここまで
+    
     ],
 
     /*
@@ -73,21 +68,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
-        ],// 追加ここから
+        ],
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
-        // 'members' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\Models\User::class,
-        // ],
-	// 追加ここまで
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

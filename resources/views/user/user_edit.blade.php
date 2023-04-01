@@ -46,12 +46,8 @@
                     <button class="btn submit-btn" type="button" onclick="location.href='/mypage'">マイページへ戻る</button>
                 </div>
 
-
-
             </form>
         </div>
-
-        
 
     </body>
 </html>
