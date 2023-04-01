@@ -1,0 +1,597 @@
+@charset "UTF-8";
+/* reset */
+body, h1, h2, h3, h4, h5, h6, p, address,
+ul, ol, li, dl, dt, dd, img, form, table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	text-align: left;
+	list-style-type: none;
+	border-collapse: collapse;
+}
+
+textarea { font-size: 100%; vertical-align:middle;}
+img { border-style: none; display: block; }
+hr { display: none; }
+em{font-style: normal}
+input{line-height:auto;vertical-align:middle;}
+strong.more{color:#c30}
+a{text-decoration: none;}
+
+
+body {
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳＰゴシック',sans-serif;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/**/
+
+/*colorここから*/
+.red{
+	color: red;
+}
+
+.blue{
+	color: #5876a3;
+}
+
+.white{
+	color: #fff;
+}
+.pink{
+	color: pink;
+}
+.gray{
+	color: #d0ccd0;
+}
+
+.blue-border{
+	border: 1px solid #5876a3;
+}
+/*colorここまで*/
+
+.page-item.active .page-link{
+	border-color: #5876a3;
+	background-color: #5876a3;
+}
+
+.page-link{
+	color: #5876a3;
+}
+
+
+/* headerここから */
+.header{
+	background-color: #08bdbd;
+	color: #fff;
+	/* position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999; */
+}
+
+.header-width{
+	width: 85%;
+}
+
+ .btn{
+	border: 1px solid transparent;
+ }
+/* headerここまで */
+
+
+body{
+	width: 100%;
+	overflow-x: hidden;
+	/* background-color: #b6e5e5; */
+}
+.contents-area{
+	width: 85%;
+	margin: auto;
+	/* margin-bottom: 100px; */
+	text-align: center;
+	border: 1px solid #5876a3;
+	border-radius: 10px;
+	padding: 20px;
+}
+.detail-area{
+	width: 70%;
+	margin: auto;
+	text-align: center;
+}
+
+.register input{
+	margin-bottom: 5px;
+}
+
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex-end{
+	justify-content: end;
+}
+
+h1{
+    font-size: 30px;
+	margin:20px;
+	text-align: center;
+}
+.app-title{
+	color: #5876a3;
+}
+
+.login-form{
+    width: 50%;
+    margin: auto;
+}
+
+.error{
+	font-size: 10px;
+}
+
+
+.submit-btn{
+    color: #fff;
+    background: #5876a3;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 2%;
+    flex-wrap: wrap;
+}
+
+.recomend-btn{
+	color: #fff;
+    background: #5876a3;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    flex-wrap: wrap;
+	margin-right: 5%;
+	margin-top: auto;
+}
+
+.login-btn{
+    color: #fff;
+    background: #5876a3;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+	margin-bottom: 2%;
+	margin-top: 2%;
+    flex-wrap: wrap;
+}
+
+.expiry-btn{
+    color: #fff;
+    background: #f15025;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+	width: 50%;
+	padding: 15px;
+}
+
+
+.link-btn{
+    color: #5876a3;
+    background: #fff;
+    /* color: #fff;
+    background: #5876a3; */
+    /* padding: 10px 30px; */
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    height: 30%;
+}
+
+/* ホーム画面ここから */
+.title{
+	font-size: 20px;
+	text-align: center;
+	margin: 30px;
+}
+.alert_area{
+	margin: 10px;
+	padding:0px
+}
+.alert{
+    text-align: center;
+	
+}
+.home-list,
+.mypage-list{
+    margin: auto;
+    /* text-align: center; */
+    width: 85%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.square{
+    width: 40%;
+    height: 200px;
+	color: #5876a3;
+    background: #fff;
+	margin: 10px 20px;
+	border-color:#b6e5e5 ;
+}
+/* ホーム画面ここまで */
+.serch-sort-area{
+	display:flex;
+	width: 85%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 10px;
+	justify-content: space-between;
+}
+.search-area{
+	width: 60%;
+}
+.date-area{
+	width: 40%;
+}
+.between{
+	justify-content: space-between;
+}
+.around{
+	justify-content: space-around;
+}
+
+.btn-area{
+	text-align: center;
+}
+.e-btn{
+	text-align: center;
+}
+
+.list-justify{
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.center{
+	text-align: center;
+}
+.m-center{
+	margin: auto;
+}
+
+.pagination,
+.d-btn,
+.btn-contact-area,
+.e-btn-area{
+	justify-content: center;
+}
+
+.d-btn{
+	display: flex;
+	align-items: center;
+}
+
+.paginate-area{
+	text-align: center;
+}
+
+/*popup*/
+#popup{
+	display: none;
+}
+
+.sinein-pop{
+	display: none;
+	align-items: center;
+	margin: auto;
+}
+
+.overlay{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 1;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+.popup-window{
+	/* max-width: 380px; */
+    width: 400px;
+	background-color: #ffffff;
+	border-radius: 6px;
+	position: fixed;
+	top: 50%;
+	left: 35%;
+	/* transition: 500ms; */
+	z-index: 10000;
+	opacity: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.fade-up{
+	animation-name: fadeUpAnime;
+	animation-duration: 1000ms;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+@keyframes fadeUpAnime{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+		transform: translate(0%,-50%);
+	}
+}
+
+.pop-title{
+	text-align: center;
+	font-weight: bolder;
+	font-size: 20px;
+	padding: 10px;
+	z-index: inherit;
+}
+
+.text{
+	border: 1px solid #ccc;
+	margin: 5px 0px;
+	width: 100%;
+	height: 40px;
+	padding: 10px;
+	border-radius: 10px;
+}
+.text::placeholder{
+	font-size: 20px;
+}
+.popup-btn{
+	background-color: #c06;
+	color: #fff;
+	border: none;
+    outline: none;
+	width: 100%;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.pop-btn{
+	background-color: #fff;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	margin: 8px 0;
+}
+
+.size{
+	font-size: 20px;
+}
+/* 
+button img{
+	width: 25px;
+	margin: auto;
+} */
+
+.under{
+    border-bottom: 1px solid #ccc;
+}
+
+
+.pop-contents{
+	padding: 15px 15px;
+}
+.closed{
+	display: none;
+}
+
+table{
+	margin: auto;
+}
+.table-title {
+    border-bottom: 1px solid #eee;
+}
+.table-body {
+    width: 80%;
+    /* max-width: 1200px; */
+    padding: 2%;
+}
+table tr {
+    background-color: #08bdbd;
+
+}
+table td {
+	background: #eee;
+}
+table tr:nth-child(odd) td {
+	background: #fff;
+}
+table th{
+	color: #fff;
+}
+table tr,
+table th,
+table td{
+	padding: 5px;
+}
+
+.contact-btn{
+	margin-left: 10px;
+}
+
+/* いいね */
+.like-counter{
+	color: black;
+}
+.liked{
+	color: #f15025;
+}
+.like-btn{
+	margin: 2px;
+}
+.like-area{
+	margin: auto 5% 0 auto;
+}
+
+/* コスメ一覧 */
+
+.cosmetic-card{
+	width: 200px;
+	border: 1px solid #5876a3;
+	
+}
+.card-body,
+.list-btn{
+	overflow: hidden;
+	width: 100%;
+
+}
+
+.card{
+	height: 25rem;
+}
+.card-body{
+	max-width: 180px;
+}
+.r-card{
+	height: 380px;
+	text-align: center;
+	margin: 5px;
+	width: 25%;
+	border: 1px solid #5876a3;
+	border-radius: 5%;
+}
+
+.list-img{
+	width: 95%;
+	height: 180px;
+	object-fit: cover;
+}
+.detail-img{
+	height: 300px;
+	width: 80%;
+	object-fit: contain;
+}
+.r-card p{
+	font-size: 12px;
+}
+
+.list-btn-area{
+	justify-content: center;
+	margin-top:auto;
+	margin-bottom: 10px;
+}
+.detail-recomend-btn{
+
+	width: 200px;
+	margin-top: 50px;
+}
+.detail p{
+	font-size: 20px;
+}
+.detail{
+	border: 1p solid#5876a3;
+}
+.width{
+	width: 60%;
+}
+
+.wrap-sort{
+	word-break: break-all;
+}
+/* ここから化粧品リスト改定版 */
+
+#cardlayout-wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    margin: 2em auto;
+    max-width: 960px;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+#cardlayout-wrap img {
+    display: block;
+    max-width: 100%;
+    height: 200px;
+	object-fit: cover;
+	margin: auto;
+}
+
+.card-figure {
+    margin: 0;
+    padding: 0;
+}
+
+.card-title {
+    margin: 0.6em 0 0;
+    color: #333;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.card-text-tax {
+    margin: 0;
+    padding: 1em;
+    color: #818181;
+}
+
+.card-list {
+    margin: 0.5em auto;
+    padding: 0;
+    width: 96%;
+    background: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+@media all and (min-width: 768px) {
+    .card-list {
+        margin: 0.5em 0;
+        width: calc(96% / 2); 
+    }
+}
+
+@media all and (min-width: 992px) {
+    .card-list {
+        width: calc(96% / 3);
+    }
+
+    #cardlayout-wrap::after{
+        content: "";
+        display: block;
+        width: calc(100% / 3);
+    }
+}
+@media all and (max-width: 767px) {
+
+	.square{
+		width: 85%;
+		height: 100px;
+	}
+	.date-area{
+		width: 100%;
+	}
+}
